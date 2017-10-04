@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F061EB3170BCDA500D13F14 /* ANN_Sample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F061EB1170BCDA500D13F14 /* ANN_Sample.cpp */; };
 		0F59CFF61709F56E00677DA7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F59CFF51709F56E00677DA7 /* main.cpp */; };
 		0F59CFF81709F56E00677DA7 /* Near_Neighbours.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F59CFF71709F56E00677DA7 /* Near_Neighbours.1 */; };
+		0F59D0001709F58400677DA7 /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F59CFFE1709F58400677DA7 /* Vertex.cpp */; };
+		0F59D0041709F86C00677DA7 /* Problem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F59D0021709F86C00677DA7 /* Problem.cpp */; };
+		0F59D007170A00A400677DA7 /* Solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F59D005170A00A400677DA7 /* Solver.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,9 +29,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0F061EB1170BCDA500D13F14 /* ANN_Sample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ANN_Sample.cpp; sourceTree = "<group>"; };
+		0F061EB2170BCDA500D13F14 /* ANN_Sample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANN_Sample.h; sourceTree = "<group>"; };
 		0F59CFF21709F56E00677DA7 /* Near Neighbours */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Near Neighbours"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F59CFF51709F56E00677DA7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0F59CFF71709F56E00677DA7 /* Near_Neighbours.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Near_Neighbours.1; sourceTree = "<group>"; };
+		0F59CFFE1709F58400677DA7 /* Vertex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vertex.cpp; sourceTree = "<group>"; };
+		0F59CFFF1709F58400677DA7 /* Vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
+		0F59D0011709F61300677DA7 /* includes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = includes.h; sourceTree = "<group>"; };
+		0F59D0021709F86C00677DA7 /* Problem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Problem.cpp; sourceTree = "<group>"; };
+		0F59D0031709F86C00677DA7 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
+		0F59D005170A00A400677DA7 /* Solver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Solver.cpp; sourceTree = "<group>"; };
+		0F59D006170A00A400677DA7 /* Solver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Solver.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +75,15 @@
 			children = (
 				0F59CFF51709F56E00677DA7 /* main.cpp */,
 				0F59CFF71709F56E00677DA7 /* Near_Neighbours.1 */,
+				0F59CFFE1709F58400677DA7 /* Vertex.cpp */,
+				0F59CFFF1709F58400677DA7 /* Vertex.h */,
+				0F59D0011709F61300677DA7 /* includes.h */,
+				0F59D0021709F86C00677DA7 /* Problem.cpp */,
+				0F59D0031709F86C00677DA7 /* Problem.h */,
+				0F59D005170A00A400677DA7 /* Solver.cpp */,
+				0F59D006170A00A400677DA7 /* Solver.h */,
+				0F061EB1170BCDA500D13F14 /* ANN_Sample.cpp */,
+				0F061EB2170BCDA500D13F14 /* ANN_Sample.h */,
 			);
 			path = "Near Neighbours";
 			sourceTree = "<group>";
@@ -118,6 +140,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F59CFF61709F56E00677DA7 /* main.cpp in Sources */,
+				0F59D0001709F58400677DA7 /* Vertex.cpp in Sources */,
+				0F59D0041709F86C00677DA7 /* Problem.cpp in Sources */,
+				0F59D007170A00A400677DA7 /* Solver.cpp in Sources */,
+				0F061EB3170BCDA500D13F14 /* ANN_Sample.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,14 +212,38 @@
 		0F59CFFC1709F56E00677DA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LIBRARY = "libstdc++";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-arch",
+					x86_64,
+				);
+				OTHER_LDFLAGS = (
+					"-lANN",
+					"-Llib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
 			};
 			name = Debug;
 		};
 		0F59CFFD1709F56E00677DA7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LIBRARY = "libstdc++";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-arch",
+					x86_64,
+				);
+				OTHER_LDFLAGS = (
+					"-lANN",
+					"-Llib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
 			};
 			name = Release;
 		};
@@ -216,6 +266,7 @@
 				0F59CFFD1709F56E00677DA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

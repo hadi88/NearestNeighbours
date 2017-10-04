@@ -6,13 +6,54 @@
 //  Copyright (c) 2013 Hadi. All rights reserved.
 //
 
-#include <iostream>
+#include "Problem.h"
+#include "Solver.h"
 
-int main(int argc, const char * argv[])
+string inputFileName = "";
+string outputFileName = "";
+double radius = -1;
+
+void printUsage(){
+    cerr << "Usage:\n\n"
+    << "  Near Neighbours [-r rad] [-i input] [-o output]\n\n"
+    << "  where:\n"
+    << "    r        minimum distance between two points (a positive value)\n"
+    << "    input    input file name\n"
+    << "    output   output file name\n"
+    << endl;
+}
+void getArguments(int argc, const char **argv)
 {
+	
+	if (argc != 2 * 3 + 1) {
+		printUsage();
+		exit(-1);
+	}
+	int i = 1;
+	while (i < argc) {
+		if (!strcmp(argv[i], "-r")) {
+			radius = atof(argv[++i]);
+		} else if (!strcmp(argv[i], "-i")) {
+			inputFileName = argv[++i];
+		} else if (!strcmp(argv[i], "-o")) {
+			outputFileName = argv[++i];
+		}else {
+			printUsage();
+            exit(-1);
+		}
+		i++;
+	}
+    if (radius <= 0 || inputFileName == "" || outputFileName == "") {
+        printUsage();
+		exit(-1);
+    }
+}
 
-    // insert code here...
-    std::cout << "Hello, World!\n";
+
+int main(int argc,const char** argv)
+{
+    getArguments(argc, argv);
+    new Solver(new Problem(inputFileName), radius, outputFileName);
     return 0;
 }
 
